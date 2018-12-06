@@ -1,11 +1,13 @@
 #!/bin/python
 from time import sleep
 from pykeyboard import PyKeyboard
+import os
 
 def main():
-    sleep(10)
+    sleep(2)
     k = PyKeyboard()
-    with open('contents.txt', 'r') as f:
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'contents.txt')
+    with open(path, 'r') as f:
         data = f.read().splitlines()
         for line in data:
             k.type_string(line)
